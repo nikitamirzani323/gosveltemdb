@@ -1,4 +1,9 @@
 <script>
+    import { link } from "svelte-spa-router";
+    async function handleLogout() {
+        localStorage.clear();
+        window.location.href = "/";
+    }
 </script>
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
@@ -15,21 +20,21 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <!-- Link -->
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" use:link href="/">Dashboard</a>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
                     Dropdown
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" use:link href="/">Action</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" use:link href="/">Another action</a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" use:link href="/">Something else here</a>
                     </li>
                 </ul>
             </li>
@@ -39,10 +44,11 @@
         <!-- Icons -->
         <ul class="navbar-nav d-flex flex-row me-1">
             <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></a>
-            </li>
-            <li class="nav-item me-3 me-lg-0">
-                <a class="nav-link" href="#"><i class="fab fa-twitter"></i></a>
+                <button
+                    on:click={() => {
+                        handleLogout();
+                    }} 
+                    type="button" class="btn btn-warning btn-sm">LOGOUT</button>
             </li>
         </ul>
         </div>

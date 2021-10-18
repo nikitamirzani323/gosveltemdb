@@ -3,11 +3,11 @@
 	import { wrap } from "svelte-spa-router/wrap";
 	import Navbar from "./components/Navbar.svelte";
 	import Company from "./pages/company/Company.svelte";
+	import Login from "./pages/Login.svelte";
 	import NotFound from "./pages/Notfound.svelte";
 	let token = localStorage.getItem("token");
 	let routes = "";
 	let isNav = false;
-	token = "123123123"
 	if (token == "" || token == null) {
 		routes = {
 			"/": wrap({
